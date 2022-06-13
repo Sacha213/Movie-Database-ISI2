@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShowController;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\TvController;
+use App\Http\Controllers\ActeurController;
+use App\Http\Controllers\GenreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +18,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ShowController::class, 'index']);
+
+Route::resource('home', ShowController::class);
+
+Route::resource('movies', MovieController::class);
+
+Route::resource('tv', TvController::class);
+
+Route::resource('acteur', ActeurController::class);
+
+Route::resource('genre', GenreController::class);
+
+
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
