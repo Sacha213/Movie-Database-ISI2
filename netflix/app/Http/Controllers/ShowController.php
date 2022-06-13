@@ -87,7 +87,6 @@ class ShowController extends Controller
                 ->where('shows.id', $id_show)
                 ->select('genres.*')
                 ->get();
-        // echo "<script>console.log('Debug Objects: " . $show. "' );</script>";
         return view('show', compact('show', 'acteurs', 'genres'));
     }
 

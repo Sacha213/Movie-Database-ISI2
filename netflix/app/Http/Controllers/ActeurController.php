@@ -48,7 +48,6 @@ class ActeurController extends Controller
      */
     public function show($id)
     {
-        //
         $shows = DB::table('shows')
           ->join('participations', 'shows.id', '=', 'participations.show_id')
           ->join('acteurs', 'acteurs.id', '=', 'participations.acteur_id')
